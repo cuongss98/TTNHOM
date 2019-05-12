@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model BTL.Models.SanPham
+<section class="bread-crumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a itemprop="url" href="@Url.Action("Index", "Home")">Trang chủ</a>
+                        <span> / </span>
+                    </li>
+                    <li>
+                        <a itemprop="url" href="@Url.Action("Index", "Home")">Laptop</a>
+                        <span> / </span>
+                    </li>
+                    <li><strong itemprop="title">@Model.TenSanPham</strong></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details-product">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-lg-4 no-padding">
+                        <div class="slider-galery ">
+                            <div class="class_image_top">
+                                <div class="text-center">
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel" styte="">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                        </ol>
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner" style="">
+                                            <div class="item active">
+                                                <img src="@Url.Content(Model.HinhAnh.Trim())">
+                                                <div class="carousel-caption">
+                                                    <h3></h3>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <img src="@Url.Content(Model.HinhAnh.Trim())">
+                                                <div class="carousel-caption">
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                <img src="@Url.Content(Model.HinhAnh.Trim())">
+                                                <div class="carousel-caption">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Left and right controls -->
+                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                            <span style="left:10px;margin-top:120px; position: absolute; z-index: 5; display: inline-block; color:black;"> <</span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                            <span style="right:10px;margin-top:120px; position: absolute; z-index: 5; display: inline-block;color:black;">></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-5 details-pro">
+                        <h1 class="product-name" itemscope="" itemtype="http://schema.org/Product">
+                            @Model.TenSanPham
+                            <meta itemprop="url" content="">
+                            <meta itemprop="name" content="">
+                            <meta itemprop="image" content="">
+                        </h1>
+                        <div class="product-vendor">
+                            <span><b>Loại: </b><a href="">Laptop doanh nhan</a></span>
+                            <span class="line"> | </span>
+                            <span><b>Tình trạng: </b>Hết hàng</span>
+                        </div>
+                        <div class="clear"></div>
+
+                        <div class="price-box" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                            <meta itemprop="availability" content="Còng hàng">
+                            <meta itemprop="price" content="">
+                            <meta itemprop="priceCurrency" content="VND">
+                            <div class="special-price">
+                                <span class="price product-price">GIÁ:</span>
+                                <span class="price product-price">@Model.Giá₫</span>
+                            </div>
+                        </div>
+                        <div class="product-policy">
+                            <ul class="ListStyle1">
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Công nghệ CPU: </strong>@Model.CPU</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Tốc độ CPU: </strong>@Model.CPUSpeed</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Tốc độ Bus: </strong>2400 MHz</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>RAM: </strong>@Model.Ram</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Tốc độ Bus RAM: </strong>2400 MHz</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Ổ cứng: </strong>@Model.HDisk</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Kích thước màn hình: </strong>@Model.KickThuocMan</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Độ phân giải: </strong>@Model.DoPhanGiai</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Thiết kế card: </strong>Card đồ họa tích hợpU</span></span></li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Hệ điều hành: </strong>Windows 10 Home SL</span></span></li>
+                                <li>
+                                    <span style="color: #000000;">
+                                        <span style="font-size: small;">
+                                            <strong>Kích thước: </strong>Dài 380 mm - Rộng 260.3 mm - Dày 23.65 mm
+                                        </span>
+                                    </span>
+                                </li>
+                                <li><span style="color: #000000;"><span style="font-size: small;"><strong>Trọng lượng: </strong>@Model.TrongLuong</span></span></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="form-product">
+                            <div class="form-group fix-margin">
+                                <div class="row">
+                                    <div class="number-quality">
+                                        <label for="exampleInputName2"><b>Số lượng:</b></label>
+                                        <div class="custom custom-btn-number form-control">
+                                            <input type="number" class="form-control" title="Số lượng" min="1" value="1" maxlength="12" id="quantity" name="quantity">
+                                        </div>
+                                    </div>
+                                    <a href="@Url.Action("ThemSp","ShopCart",new { id=Model.SanPhamID})" onclick="return alert('Thêm Sản phẩm thành công');" class="btn btn-lg btn-style btn-cart btn-cart2 add_to_cart" title="Cho vào giỏ hàng">
+                                        <span>Thêm vào giỏ hàng</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-product">
+                            <div style="border:1px dashed #f00;width:100%;float:left;padding: 15px;background: #d2d2d2;">
+                                <p>
+                                    Quý khách có nhu cầu mua máy Laptop vui lòng liên hệ theo thông tin trên để được tư vấn và hỗ trợ nhanh nhất
+                                </p>
+                                <p class="price product-price">09.4554.6338</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs col-lg-3 col-md-3 col-sm-12 col-xs-12 no-padding">
+                        <aside class="hidden-lg-down">
+                            <div class="aside aside-policy">
+                                <div class="aside-policy-item" style=" margin-right: 10px; display:block;cursor: pointer">
+                                    <img src="~/template/Default/img/p_policy_1.png" alt="Miễn phí vận chuyển với đơn hàng lớn hơn">
+                                    <img src="~/template/Default/img/pw_policy_1.png" alt="Miễn phí vận chuyển với đơn hàng lớn hơn">
+                                    <p>Miễn phí vận chuyển với đơn hàng lớn hơn</p>
+                                </div>
+                                <div class="aside-policy-item" style=" margin-right: 10px; display:block;cursor: pointer">
+                                    <img src="~/template/Default/img/p_policy_2.png" alt="Giao hàng ngay sau khi đặt hàng ( áp dụng với Hà Nội &amp; HCM ) ">
+                                    <img src="~/template/Default/img/pw_policy_2.png" alt="Giao hàng ngay sau khi đặt hàng ( áp dụng với Hà Nội &amp; HCM ) ">
+                                    <p>Giao hàng ngay sau khi đặt hàng ( áp dụng với Hà Nội &amp; HCM ) </p>
+                                </div>
+                                <div class="aside-policy-item" style=" margin-right: 10px; display:block;cursor: pointer">
+                                    <img src="~/template/Default/img/p_policy_3.png" alt="Đổi trả trong 3 ngày, thủ tục đơn giản.">
+                                    <img src="~/template/Default/img/pw_policy_3.png" alt="Đổi trả trong 3 ngày, thủ tục đơn giản.">
+                                    <p>Đổi trả trong 3 ngày, thủ tục đơn giản.</p>
+                                </div>
+                                <div class="aside-policy-item" style=" margin-right: 10px; display:block;cursor: pointer">
+                                    <img src="~/template/Default/img/p_policy_4.png" alt="Nhà cung cấp xuất hóa đơn cho sản phẩm này.">
+                                    <img src="~/template/Default/img/pw_policy_4.png" alt="Nhà cung cấp xuất hóa đơn cho sản phẩm này.">
+                                    <p>Nhà cung cấp xuất hóa đơn cho sản phẩm này.</p>
+                                </div>
+                                <div class="aside-policy-item" style=" margin-right: 10px; display:block;cursor: pointer">
+                                    <img src="~/template/Default/img/p_policy_5.png" alt="Tư vấn trực tuyến <br>Leanhgiang">
+                                    <img src="~/template/Default/img/pw_policy_5.png" alt="Tư vấn trực tuyến <br>Leanhgiang">
+                                    <p>Tư vấn trực tuyến - PhamKhacTu</p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9  no-padding-left">
+                        <div class="container_tabs product-tabs">
+                            <ul class="tabs">
+                                <li class="tab-link current">Thông tin sản phẩm</li>
+                                <div class="clear"></div>
+                            </ul>
+                            <div id="tab-1" class="tab-content current">
+                                <div class="content-tabs-intro">
+                                    <h3>@Model.TenSanPham </h3>
+                                    <p>
+                                        <strong>Thiết kế thanh lịch, trọng lượng khá nhẹ </strong> phù hợp cho việc di chuyển hằng ngày đến lớp học, công sở - Laptop Dell Inspiron 3576 i5 8250U được trang bị cấu hình đủ mạnh để chạy tốt các ứng dụng văn phòng, cho phản hồi các thao tác kéo thả trong photoshop, AI khá nhanh rất phù hợp cho sinh viên, nhân viên văn phòng.
+                                        Thiết kế đơn giản, thuận tiện di chuyển
+                                        Vỏ được làm bằng nhựa nhám bao bọc giúp cho máy hạn chế được bụi bẩn, trầy xước cũng như chịu va chạm tốt trong quá trình sử dụng. Chiếc máy tính xách tay Dell có trọng lượng vừa phải chỉ 2.3 kg, vì vậy chúng ta có thể mang theo bên mình khi làm việc ngoài các không gian khác.
+                                    </p>
+                                    <strong>Xử lý tốt đồ hoạ cơ bản</strong><p>
+                                        Laptop Dell Inspiron 3576 core i5 thế hệ 8, xung nhịp 1.6 Ghz kết hợp cùng 4GB RAM đáp ứng đầy đủ nhu cầu xử lý đồ hoạ cơ bản như photoshop, Ai. Chiến các game như liên minh huyền thoại, fifa online 3 khá mượt mà.
+                                    </p>
+                                    <strong>Màn hình rộng trải nghiệm giải trí hoàn hảo</strong><p>
+                                        Sở hữu màn hình rộng 15.6 inch cùng với đó là độ phân giải Full HD (1920 x 1080) xem phim với chất lượng ảnh tươi sáng và sắc nét mang cảm giác chân thực trong từng bức ảnh.
+                                    </p>
+                                    <strong>Bàn phím to, rõ độ nảy tốt thuận tiện đánh máy</strong><p>
+                                        Bàn phím fullsize trên máy tính xách tay Dell Inspiron 3576 phù hợp cho kế toán, người thường sử dụng bàn phím số để nhập liệu. Độ nảy phím tốt sẽ giúp gõ phím chính xác, hạn chế sai lỗi chính tả không cần thiết.
+                                    </p>
+                                    <strong>Ổ đĩa quang thuận tiện học tập, USB 3.0 truyền dữ liệu nhanh chóng</strong><p>
+                                        Máy có ổ đĩa quang giúp bạn xem phim hay học tiếng Anh với đĩa DVD dễ dàng hơn. Một điểm cộng tiếp theo máy vẫn trang bị cổng mạng LAN giúp bạn kết nối tiện lợi với internet khi Wi-Fi yếu. Kèm theo cổng USB 2.0 là 2 x USB 3.0 giúp truyền tải dữ liệu nhanh hơn. Thêm nữa, cổng HDMI cho phép kết nối với tivi hoặc máy chiếu tiện lợi.
+                                    </p>
+
+
+                                    <p><span style="font-size: medium;"> </span></p>
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-content">
+                                <div class="content-tabs-intro">
+                                    <div class="wrap-text">
+                                        <span id="ctl00_ContentPlaceHolder1_lstArticle_ctrl0_lblContent">
+                                            <div style="text-align: justify;">
+                                                <strong>
+                                                    <h2><span style="color: #ff0000;">1. Thời gian giao hàng</span></h2>
+                                                </strong>
+                                            </div>
+                                            <div style="text-align: justify;"><em>XTM</em> sẽ vận chuyển hàng trong thời gian thỏa thuận khi quý khách thực hiện  đầy đủ các thủ tục đặt hàng và đơn hàng được xác nhận thành công. Thời  gian vận chuyển hàng (không tính thứ bảy, chủ nhật hay các ngày lễ tết).<br><br></div>
+                                            <div style="text-align: justify;">Khu vực nội ngoại thành TP.HCM : 2-3 ngày.<br><br></div>
+                                            <div style="text-align: justify;">Các tỉnh còn lại: 4-7 ngày.<br><br></div>
+                                            <div style="text-align: justify;">
+                                                <strong>
+                                                    <h2><span style="color: #ff0000;">2. Chi phí giao hàng</span></h2>
+                                                </strong><br><br>
+                                            </div>
+                                            <div style="text-align: justify;">Miễn phí giao hàng cho đơn hàng từ 500.000đ trở lên trong nội thành TP. HCM<br><br></div>
+                                            <div style="text-align: justify;">Đối với đơn hàng nhỏ hơn 500.000:<br><br></div>
+                                            <div style="text-align: justify;">Phí giao hàng áp dụng theo bảng giá cước vận chuyển.<br><strong>Ở TP HCM</strong><br>- Khu vực nội thành gồm Quận 1, 2,3,4,5,6,7,8,10,11 và Tân Bình, Tân Phú, Phú Nhận, Bình Thạnh, Gò Vấp: 20.000 một lần<br>- Khu vực ngoại thành gồm Bình Tân, 9, Thủ Đức, 12: 30.000 một lần.</div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <div class="sidebar relative left-content col-xs-12 col-sm-12 col-md-3 col-lg-3 no-padding-right">
+                        <div class="aside-right">
+                            <div class="aside hidden-sm hidden-xs">
+                                <!-- danh muc -->
+                                <div class="aside aside-mini-products-list">
+                                    <div class="aside-title">
+                                        <h4 style="line-height: 40px;
+                                                    color: #e03232;
+                                                    font-weight: bold;
+                                                    padding: 5px 10px;
+                                                    text-transform: uppercase;
+                                                    background: #f1f1f1;
+                                                    border-width: 1px 1px 1px 5px;
+                                                    border-style: solid;
+                                                    border-color: #eee #eee #eee #e03232;">
+                                            Danh mục sản phẩm
+                                        </h4>
+                                    </div>
+                                    @Html.Action("DanhMuc", "Home")
+                                </div>
+                                <!-- end danh muc -->
+                            </div>
+                            <!-- danh sach tin tuc -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

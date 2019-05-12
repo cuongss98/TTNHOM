@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="bread-crumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+                        <span> / </span>
+                    </li>
+                    <li><strong>Thanh toán</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                <div class="page-title category-title">
+                    <h1 class="title-head"><a href="#">Giỏ hàng của bạn</a></h1>
+                </div>
+                <div class="content-page">
+
+                    <div class="container_table">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr class="tr tr_first">
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th style="width:100px;">Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th style="width:50px; text-align:center;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form action="" method="post">
+                                    <tr class="tr">
+                                        <td data-th="Hình ảnh">
+                                            <div class="col_table_image col_table_hidden-xs"><img src="~/data/upload/laptop01.jpg" alt="Laptop Asus S1300i" class="img-responsive" /></div>
+                                        </td>
+                                        <td data-th="Sản phẩm">
+                                            <div class="col_table_name">
+                                                <a href="@Url.Action("ChiTietSanPham", "Home")"><h4 class="nomargin">Laptop Asus S1300i</a></h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Mã sản phẩm">
+                                            <div class="col_table_name">
+                                                <h4 class="nomargin">ASUS001</h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Giá"><span class="color_red font_money">13500000 đ</span></td>
+                                        <td data-th="Số lượng">
+                                            <div class="center">
+                                                <input name="qty[56]" type="text" class="inputsoluong" value="1" disabled>
+                                            </div>
+                                        </td>
+                                        <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">13,500,000 đ</span></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td data-th="Hình ảnh">
+                                            <div class="col_table_image col_table_hidden-xs"><img src="~/data/upload/laptop01.jpg" alt="Laptop Asus S1300i" class="img-responsive" /></div>
+                                        </td>
+                                        <td data-th="Sản phẩm">
+                                            <div class="col_table_name">
+                                                <a href="@Url.Action("ChiTietSanPham", "Home")"><h4 class="nomargin">Laptop Asus S1300i</a></h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Mã sản phẩm">
+                                            <div class="col_table_name">
+                                                <h4 class="nomargin">ASUS001</h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Giá"><span class="color_red font_money">13500000 đ</span></td>
+                                         <td data-th="Số lượng">
+									        <div class="center">
+										        <input name= "qty[56]" type="text" class="inputsoluong" value="1" disabled>
+									        </div>
+							            </td>
+                                        <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">13,500,000 đ</span></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td data-th="Hình ảnh">
+                                            <div class="col_table_image col_table_hidden-xs"><img src="~/data/upload/laptop01.jpg" alt="Laptop Asus S1300i" class="img-responsive" /></div>
+                                        </td>
+                                        <td data-th="Sản phẩm">
+                                            <div class="col_table_name">
+                                                <a href="@Url.Action("ChiTietSanPham", "Home")"><h4 class="nomargin">Laptop Asus S1300i</a></h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Mã sản phẩm">
+                                            <div class="col_table_name">
+                                                <h4 class="nomargin">ASUS001</h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Giá"><span class="color_red font_money">13500000 đ</span></td>
+                                        <td data-th="Số lượng">
+                                            <div class="center">
+                                                <input name="qty[56]" type="text" class="inputsoluong" value="1" disabled>
+                                            </div>
+                                        </td>
+                                        <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">13,500,000 đ</span></td>
+                                    </tr>
+                                    <tr class="tr">
+                                        <td data-th="Hình ảnh">
+                                            <div class="col_table_image col_table_hidden-xs"><img src="~/data/upload/laptop01.jpg" alt="Laptop Asus S1300i" class="img-responsive" /></div>
+                                        </td>
+                                        <td data-th="Sản phẩm">
+                                            <div class="col_table_name">
+                                                <a href="@Url.Action("ChiTietSanPham", "Home")"><h4 class="nomargin">Laptop Asus S1300i</a></h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Mã sản phẩm">
+                                            <div class="col_table_name">
+                                                <h4 class="nomargin">ASUS001</h4>
+                                            </div>
+                                        </td>
+                                        <td data-th="Giá"><span class="color_red font_money">13500000 đ</span></td>
+                                        <td data-th="Số lượng">
+                                            <div class="center">
+                                                <input name="qty[56]" type="text" class="inputsoluong" value="1" disabled>
+                                            </div>
+                                        </td>
+                                        <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">13,500,000 đ</span></td>
+                                    </tr>
+                                </form>
+                                <tr>
+                                    <td colspan="7" class="textright_text">
+                                        <div class="sum_price_all">
+                                            <span class="text_price">Tổng tiền thành toán</span>:
+                                            <span class="text_price color_red">13,500,000 đ</span>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr> <td><h4>Thông tin nguời nhận </h4></td> </tr>
+                                <tr class="">
+                                    <td>
+                                        <strong>Họ Tên</strong>
+                                    </td>
+                                    <td colspan="12" style="text-align: left;">
+                                        Nguyễn Văn Ngọc
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>
+                                        <strong>Địa Chỉ</strong>
+
+                                    </td>
+                                    <td colspan="12" style="text-align: left;">
+                                        333Cau Giay - Ha Noi
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>
+                                        <strong>Sô Điện Thoại</strong>
+                                    </td>
+                                    <td colspan="12" style="text-align: left;">
+                                        01235771222
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>
+                                        <strong>Email</strong>
+
+                                    </td>
+                                    <td colspan="12" style="text-align: left;">
+                                        dinhcuong9a7.98@gmail.com
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td>
+                                        <strong>Số Tài Khoản</strong>
+
+                                    </td>
+                                    <td colspan="12" style="text-align: left;">
+                                        01313094656456564
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pull-xs-left" style="margin-top:10px;margin-bottom: 20px;">
+                            <button tyle="summit" class="btn btn-lg btn-style btn-style-active">Đặt hàng</button>
+                            <a class="btn btn-lg btn-style btn-style-active btn-dark" href="@Url.Action("Index", "Home")" role="button">Hủy đơn hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

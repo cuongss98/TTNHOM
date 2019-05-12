@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using System.Collections
+@using BTL.Common
+<section class="bread-crumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                <ul class="breadcrumbs">
+                    <li class="home">
+                        <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+                        <span> / </span>
+                    </li>
+                    <li><strong itemprop="title">Giỏ hàng</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                <div class="page-title category-title">
+                    <h1 class="title-head"><a href="#">Giỏ hàng của bạn</a></h1>
+                </div>
+                <div class="content-page">
+
+                    <div class="container_table">
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                                <tr class="tr tr_first">
+                                    <th>Hình ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Mã sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th style="width:100px;">Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th style="width:50px; text-align:center;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form action="" method="post">
+
+                                    @foreach (ShoppingCartItem x in Model.lstItems)
+                                    {
+                                        <tr class="tr" style="height: 100%;">
+                                            <td data-th="Hình ảnh">
+                                                <div class="col_table_image col_table_hidden-xs"><img src="@Url.Content(@x.HinhAnh)" alt="Laptop Asus S1300i" class="img-responsive" /></div>
+                                            </td>
+                                            <td data-th="Sản phẩm">
+                                                <div class="col_table_name">
+                                                    <a href="@Url.Action("ChiTietSanPham", "Home", new { Id = x.SanPhamID })"><h4 class="nomargin">@x.TenSanPham</h4></a>
+                                                </div>
+                                            </td>
+                                            <td data-th="Mã sản phẩm">
+                                                <div class="col_table_name">
+                                                    <h4 class="nomargin">@x.TenSanPham</h4>
+                                                </div>
+                                            </td>
+                                            <td data-th="Giá"><span class="color_red font_money">@x.Giá đ</span></td>
+                                            <td data-th="Số lượng">
+                                                <div class="center">
+                                                    <input name="qty[56]" type="number" class="inputsoluong" value="@x.SoLuong" min='1' max='100'>
+                                                </div>
+                                            </td>
+                                            <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">@x.ThanhTien() đ</span></td>
+
+                                            <td class="actions aligncenter" data-th="">
+                                                <a href="@Url.Action("XoaSp","ShopCart", new { id=x.SanPhamID})"
+                                                   onclick="return confirm('Bạn có chắc chắn muốn bỏ sản phẩm này không?')"
+                                                   class="btn_df btn_table_td_rf_del btn-sm" role="button" style="text-decoration: none;">
+                                                    X
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </form>
+                                <tr>
+                                    <td colspan="7" class="textright_text">
+                                        <div class="sum_price_all">
+                                            <span class="text_price">Tổng tiền thành toán</span>:
+                                            <span class="text_price color_red">@Model.TongTien() đ</span>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="tr_last">
+                                    <td colspan="7">
+                                        <a href="@Url.Action("Index", "Home")" class="btn_df btn_table floatleft"> Tiếp tục mua hàng</a>
+
+                                        <div class="clear"></div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="page-login">
+                        <div id="login">
+                            <h3 class="title-head"><a href="#">Thanh toán đơn hàng</a></h3>
+                            <span>Bạn đã chắc chắn thanh toán. Hãy Click ngay.</span>
+                            <form accept-charset="UTF-8" name="FormGioHang" action="gio-hang" id="contact" method="post">
+                                <input name='FormType' type='hidden' value='contact' />
+                                <input name='utf8' type='hidden' value='true' />
+                                <div class="form-signup clearfix">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="pull-xs-left" style="margin-top:10px;margin-bottom: 20px;">
+                                                @{
+                                                    var sessionUser = (UserLogin)Session[CommonConstant.USER_SESSION];
+                                                    if (sessionUser == null)
+                                                    {
+                                                        <a class="btn btn-lg btn-style btn-style-active btn-primary" href="@Html.Raw( Url.Action("Index","Login"))">Thanh Toán</a>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        var sessionCart = (ShoppingCart)Session[CommonConstant.CartSession];
+                                                        if (sessionCart.lstItems.Count > 0)
+                                                        {
+                                                            <a class="btn btn-lg btn-style btn-style-active btn-primary" href="@Url.Action("ThanhToan", "ShopCart")" onclick=" return alert('Giao dịch thành công!')">Thanh Toán</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a class="btn btn-lg btn-style btn-style-active btn-primary" href="@Url.Action("Index", "Home")" onclick=" return alert('Không có sản phẩm nào trong giỏ hàng!')">Thanh Toán</a>
+                                                        }
+                                                    }
+                                                }
+
+                                                <a class="btn btn-lg btn-style btn-style-active btn-dark" href="@Url.Action("Index","Home")">Huỷ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

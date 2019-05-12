@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script>
+	function checkIt(e)
+	{
+		// cho phep nhap so, nut backspace, delete vau dau .
+		var keynum;
+		if(window.event) // IE
+		{
+			keynum = e.keyCode;
+		}
+		else if(e.which) // Netscape/Firefox/Opera
+		{
+			keynum = e.which;
+		}
+		if ( ((keynum > 45) && (keynum <58)) || (keynum == 8) || (keynum == 9) || (keynum == 190) || (keynum == 39)|| (keynum == 37)  || (keynum >= 96 && keynum <= 105)) return true;
+		else return false;
+
+		// 37 : left ; 39: right
+	}
+	function KiemTraEmail()
+	{
+		var x = document.FormLienHe;
+		var n = /^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		var xx=x.txtEmail.value;
+		if(!xx.match(n))
+		{
+			window.alert("Email không hợp lệ");
+			x.txtEmail.focus();
+			$("#sub").attr("type", "button");
+			return false;
+			}else{
+			$("#sub").attr("type", "submit");
+			return true;
+		}
+	}
+
+	function KiemTraMa()
+	{
+		var x = document.FormLienHe;
+		if(x.txtMaXacNhan.value != m)
+		{
+			alert("Mã xác nhận không đúng.");
+			x.txtMaXacNhan.focus();
+			$("#sub").attr("type", "button");
+			return false;
+			}else{
+			$("#sub").attr("type", "submit");
+			return true;
+		}
+	}
+    </script>
+
+    <script type="text/javascript">
+
+	function guiLienHe(doc){
+		document.getElementById("khungnen").style.display = "block";
+		document.getElementById("loadding").style.display = "block";
+		jQuery.post('http://mayscan.net/lien-he',$(doc).serialize(),function(data){
+			document.getElementById("khungnen").style.display = "none";
+			document.getElementById("loadding").style.display = "none";
+			if(data == 0){
+				swal({
+					title: "Liên hệ thành công chúng tôi gọi cho bạn sớm nhất",
+					type: "success",
+					showCancelButton: false,
+					confirmButtonColor: '#F19F00',
+					confirmButtonText: 'OK',
+				},
+				function(isConfirm){
+					if (isConfirm){
+						location.reload();
+					}
+				});
+				}else if(data == 1 || data != 0){
+				swal({
+					title: "Đã xảy ra lỗi",
+					type: "error",
+					showCancelButton: false,
+					confirmButtonColor: '#F19F00',
+					confirmButtonText: 'OK',
+				},
+				function(isConfirm){
+					if (isConfirm){
+						return false;
+					}
+				});
+			}
+		})
+		return false;
+	}
+
+    </script>
+
+    <section class="bread-crumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+                    <ul class="breadcrumbs">
+                        <li class="home">
+                            <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+                            <span> / </span>
+                        </li>
+                        <li><strong itemprop="title">Liên hệ</strong></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+
+                    <div class="page-title category-title">
+                        <h1 class="title-head"><a href="#">Liên hệ với chúng tôi</a></h1>
+                    </div>
+                    <div class="content-page">
+
+                        <div class="container_table" style="margin-bottom:20px;">
+                            <div class="map map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.6357386158293!2d105.78407051488371!3d21.04725618598837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab2d88bb4195%3A0x3006e474cce20274!2sMilitary+Technology+Academy!5e0!3m2!1sen!2s!4v1556941584926!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                            <script>
+							jQuery('.map-container').click(function(){
+								jQuery(this).find('iframe').addClass('clicked');
+
+								}).mouseleave(function(){
+								jQuery(this).find('iframe').removeClass('clicked');
+							});
+                            </script>
+                            <div class="infor-map text-left">
+
+                            </div>
+                        </div>
+
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end:body-->
+
+

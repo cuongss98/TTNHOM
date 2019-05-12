@@ -1,0 +1,161 @@
+﻿@using System.Collections
+@using BTL.Common
+<!doctype html>
+<html>
+<head>
+    <title>LAPTOP GIÁ RẺ CHÍNH HÃNG</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="template/Default/img/favicon.png" type="image/x-icon" />
+    <meta name="Description" content="Phân phối độc quyền các dòng máy laptop chính hãng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta property="og:title" name="title" content="LAPTOP GIÁ RẺ CHÍNH HÃNG" />
+
+    <!--//add  -->
+    <link rel="stylesheet" href="~/template/Default/css/font-awesome.min.css" />
+    <link href="~/template/Default/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/Default/css/styles_menu.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/template/Default/css/owl.carousel.css" />
+    <link href="~/template/Default/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/Default/css/module.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/Default/css/sidebar.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/Default/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="~/template/Default/css/custom-dqdt.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+        <header class="site-header ">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="menu-mobile hidden-lg hidden-md">
+                        <div class="dropdown">
+                            <button class="btn-close"></button>
+                            <div class="dropdown-toggle" id="dropdownMenu1">
+                                <img src="~/template/Default/img/btn-white.png" alt="" />
+                            </div>
+                            <div class="dropdown-menu">
+
+                                <div class="logo-mobile">
+                                    <a href="" class="logo-wrapper"><img src="~/img/laptop-blue.png" alt="Logo" /></a>
+                                </div>
+                                <!-- end logo -->
+                                <ul>
+                                    <li><a href="">Trang chủ</a></li>
+                                    <li><a href="">Sản phẩm</a></li>
+                                    <li><a href="">Liên hệ</a></li>
+                                    <li><a href=""><img src="~/template/Default/img/cart.png" alt="Logo" /></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 no-padding-left">
+                            <!-- logo -->
+                            <div class="">
+                                <a href="@Url.Action("Index", "Home")" class="logo-wrapper"><img src="~/img/laptop-blue.png" alt="Logo" style="width:20%;" /></a>
+                            </div>
+                            <!-- end logo -->
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                            <!-- menu index -->
+                            <div id="cssmenu">
+                                <ul>
+                                    <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                                    <li>
+                                        @Html.ActionLink("Sản phẩm", "Index", "Home")
+                                        <ul>
+                                            <li>
+                                                <a href="">Laptop Asus</a>
+                                                <a href="">Laptop Dell</a>
+                                                <a href="">Laptop Lenovo</a>
+                                                <a href="">Laptop HP</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>@Html.ActionLink("Liên hệ", "LienHe", "Home")</li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "ShopCart")">
+                                            <img src="~/template/Default/img/cart.png"
+                                                 alt="Logo" style="width:30%;" />
+                                        </a>
+                                    </li>
+                                    <li>
+                                        @{
+                                            var sessionUser = (UserLogin)Session[CommonConstant.USER_SESSION];
+                                            if (sessionUser == null)
+                                            {
+                                                @Html.ActionLink("Đăng Nhập", "Index", "Login")
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(sessionUser.UserName,"Index","Home")
+                                            }
+                                        }
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    @RenderBody()
+    <footer class="footer-v1">
+        <div class="site-footer">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                            <h3><span>LapTop 123</span></h3>
+                            <div class="list-menu">
+                                <div class="infor-page" style="color:darkgray;">
+                                    Laptop Dell/Laptop HP/Laptop Asus/Laptop Lenovo/Laptop HP/Laptop Asus/Laptop Lenovo<br>
+                                    <br>
+                                    Laptop Dell/Laptop HP/Laptop Asus/Laptop Lenovo/Laptop HP/Laptop Asus/Laptop Lenovo<br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                            <h3><span>CÔNG TY TNHH LAPTOP123</span></h3>
+                            <div class="list-menu">
+                                <div class="infor-page">
+                                    <ul>
+                                        <li>Địa chỉ: <span style="color:darkgray;"> Số 433 Hoàng Quốc Việt, Cầu Giấy, TP Hà Nội</span></li>
+                                        <li>
+                                            Tổng đài hỗ trợ:<span style="color:darkgray;"> 0906308380 </span>
+                                            <br>Thời gian làm việc :<span style="color:darkgray;"> Từ 8h00 - 22h00 các ngày thứ 2 đến chủ nhật</span>
+                                        </li>
+                                        <li>Gmail:<span style="color:darkgray;"> laptop123@gmail.com </span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright clearfix">
+            <div class="container">
+                <div class="inner clearfix">
+                    <div class="pull-left">
+                        <h4 class="title-copyright">© Bản quyền thuộc về Laptop123.com <a href="@Url.Action("Index", "Home")">Thiet Ke Web</a> Bởi <a href="@Url.Action("Index", "Home")">Laptop123</a></h4>
+                    </div>
+                    <div class="pull-right hidden-xs-down payment">
+                        <span>Phương thức thanh toán:</span>
+                        <img src="~/template/Default/img/bidvicon.png" alt="payment" style="width: 6%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/template/Default/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="~/template/Default/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<script>
+    
+</script>																		

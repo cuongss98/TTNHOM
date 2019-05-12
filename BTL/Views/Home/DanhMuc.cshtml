@@ -1,0 +1,17 @@
+﻿@using BTL.Models
+
+@foreach (DanhMuc x in Model)
+{
+<div class="aside-content mini-products-list">
+    <div class='cssmenu-flyout'>
+        <ul>
+            <li>
+                <a href="@Url.Action("TimKiemTheoDanhMuc","Home", new {Id= @x.DanhMucID})"><span>@x.TenDanhMuc </span></a>
+                <div class="menu-sub-fly">
+                </div>
+            </li>
+          
+        </ul>
+    </div>
+</div>
+}
